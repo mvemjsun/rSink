@@ -1,0 +1,22 @@
+{
+ "name": "rSink",
+ "version": "1.0.0",
+ "description": "",
+ "main": "main.js",
+ "dependencies": {
+  "express": "*",
+  "sqlite3": "*",
+  "body-parser": "*"
+ },
+ "scripts": {
+ 	"createdb" : "sqlite3 rsink.db < ./db/create.sql",
+ 	"resetDb": "rm -rf rsink.db; sqlite3 rsink.db < ./db/create.sql"
+ },
+ "devDependencies": {
+  "jest": "22.3"
+ },
+ "config": {
+ 	"dbName": "rsink.db",
+ 	"port": 9294
+ }
+}
