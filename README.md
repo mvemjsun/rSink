@@ -1,7 +1,6 @@
 # Simple node.js HTTP sink
 
-![](https://github.com/mvemjsun/rSink/blob/master/rSink.png =100x60)
-
+<img src="https://github.com/mvemjsun/rSink/blob/master/rSink.png" alt="" width="100" height="60">
 ## Summary 
 A simple node server that will log any HTTP `POST` `PUT` & `GET` request that is sent to the server into an SQLLITE database. The logged data can then be retrieved back using a simple API.
 
