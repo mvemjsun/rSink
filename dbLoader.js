@@ -1,7 +1,6 @@
 let config = require('./package').config
 
 function getDbHandle(db) {
-	console.log(`SQLITE DB name is ${config.dbName} ...`);
 	let myDb = new db.Database(`${config.dbName}`, "OPEN_READWRITE", error => {
 		if (error) {
 			console.log('Error opening the sqlite db !');
@@ -11,7 +10,6 @@ function getDbHandle(db) {
 			console.log('SQLITE db opened successfully');
 		}
 	});
-	console.log(myDb);
 	return myDb;
 }
 

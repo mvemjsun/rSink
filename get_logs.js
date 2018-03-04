@@ -1,7 +1,6 @@
 var K = require('./constants')
 
 function fetchLogs(request, db) {
-	console.log('Retrieving logs...');
 	let p = request.path;
 
 	switch (p) {
@@ -22,7 +21,6 @@ function fetchLogs(request, db) {
 }
 
 function fetchLogsInRange(request, db) {
-	console.log('>>> Fetching request logs in range ...');
 	let q = request.query;
 	let from = q.from;
 	let to = q.to;
