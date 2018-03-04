@@ -1,4 +1,6 @@
-# Simple node HTTP sink
+# Simple node.js HTTP sink
+
+![](https://github.com/mvemjsun/rSink/blob/master/rSink.png)
 
 ## Summary 
 A simple node server that will log any HTTP `POST` `PUT` & `GET` request that is sent to the server into an SQLLITE database. The logged data can then be retrieved back using a simple API.
@@ -7,10 +9,11 @@ A typical use of this server may be to log and then validate the HTTP requests f
 
 ## Installation
 
-1. Install dependencies using `npm install`
-2. Run `npm run createdb` to create the sqlite database.
-3. Run `node main.js` to start the server at port defind in package.json, defaults is 9294.
-4. Direct your http requests to the server and get them logged.
+1. Clone the repo using `got clone git@github.com:mvemjsun/rSink.git` 
+2. Install dependencies using `npm install`
+3. Run `npm run createdb` to create the sqlite database.
+4. Run `node main.js` to start the server at port defind in package.json, defaults is 9294.
+5. Direct your http requests to the server and get them logged.
 
 ## API
 
