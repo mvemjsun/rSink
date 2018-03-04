@@ -26,10 +26,11 @@ function fetchLogsInRange(request, db) {
 	let q = request.query;
 	let from = q.from;
 	let to = q.to;
-	let matching = q.matching || '';
+	let matchingUrl = q.matching || '';
 	var data = [];
 
-	let matchString = `%${matching}%`;
+	let matchString = `%${matchingUrl}%`;
+
 	let fromOK = Date.parse(from);
 	let toOK = Date.parse(to);
 
