@@ -8,10 +8,12 @@ function fetchLogs(request, db) {
 		case `${K.Constants.FETCH_LOGS_IN_RANGE()}`:
 			return new Promise( (resolve,reject) => fetchLogsInRange(request, db).then( data => {
 				resolve(data);
+			}).catch( data => {
+				reject(data);
 			}));
 			break;
 		case `${K.Constants.FETCH_LOGS_RECENT()}`:
-			console.log(q);
+			console.log("Will be implemented in future");
 			break;
 		default:
 			console.log(`Dont know how to process ${q}`);
@@ -28,8 +30,16 @@ function fetchLogsInRange(request, db) {
 	var data = [];
 
 	let matchString = `%${matching}%`;
+	let fromOK = Date.parse(from);
+	let toOK = Date.parse(to);
 
+	if (isNaN(fromOK) || isNaN(toOK)) {
+		return new Promise( (resolve,reject) => {
+			reject("One or both of input dates are invalid");
+		});
+	}
 	return new Promise( (resolve,reject) => 
+
 		db.each("SELECT verb, headers, body, createdat, query, url FROM requestlogs WHERE \
 		createdat BETWEEN ? AND ? AND url LIKE ? ORDER BY createdat DESC", 
 		[from, to, matchString], (error,row) => {
