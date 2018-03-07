@@ -5,5 +5,6 @@ CREATE TABLE `requestlogs` (
 	`verb`      TEXT,
 	`params`    TEXT,
 	`body`	    TEXT,
+	`contenttype` TEXT,
 	`createdat` datetime
 );

@@ -15,7 +15,7 @@ function fetchLogs(request, db) {
 			console.log("Will be implemented in future");
 			break;
 		default:
-			console.log(`Dont know how to process ${q}`);
+			console.log(`Dont know how to process ${p}`);
 			console.log(`${K.Constants.FETCH_LOGS_IN_RANGE()}`);
 	}
 }
@@ -39,7 +39,7 @@ function fetchLogsInRange(request, db) {
 	}
 	return new Promise( (resolve,reject) => 
 
-		db.each("SELECT verb, headers, body, createdat, query, url FROM requestlogs WHERE \
+		db.each("SELECT verb, headers, body, createdat, query, url,contenttype FROM requestlogs WHERE \
 		createdat BETWEEN ? AND ? AND url LIKE ? ORDER BY createdat DESC", 
 		[from, to, matchString], (error,row) => {
 			if (error) {

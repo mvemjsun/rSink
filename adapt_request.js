@@ -10,6 +10,7 @@ function adaptRequest(request) {
 	response.method = request.method;
 	response.params = request.params;
 	response.body = request.body;
+	response.contentType = request.get('content-type');
 	return response;
 }
 

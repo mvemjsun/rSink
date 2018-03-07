@@ -13,19 +13,20 @@ function formattedDate () {
 function saveRequest(request, db) {
   var content = ""
   if (request.method != "GET") {
-    content = decodeURIComponent(request.body);
+    content = request.body;//decodeURIComponent(request.body);
   } else {
     content = "";
   }
-	db.run("INSERT INTO requestlogs(verb,headers,body,createdat,query,url) \
+	db.run("INSERT INTO requestlogs(verb,headers,body,createdat,query,url,contenttype) \
 			VALUES \
- 			(?,?,?,?,?,?)",
+ 			(?,?,?,?,?,?,?)",
  			[request.method, 
- 			decodeURIComponent(request.headers),
+ 			request.headers,
  			content,
  			formattedDate(),
- 			JSON.stringify(request.query) || "",
- 			decodeURIComponent(request.path)]);
+ 			request.query || '',
+ 			request.path,
+      request.contentType || '']);
 }
 
 exports.saveRequest = saveRequest 
