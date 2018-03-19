@@ -15,8 +15,8 @@ function fetchLogs(request, db) {
 			console.log("Will be implemented in future");
 			break;
 		default:
-			console.log(`Dont know how to process ${p}`);
-			console.log(`${K.Constants.FETCH_LOGS_IN_RANGE()}`);
+			console.log("Will be implemented in future");
+			break;
 	}
 }
 
